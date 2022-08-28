@@ -16,10 +16,10 @@ public class Employee {
     public static void display(){
         System.out.println("Hello everyone i am inside static method!!!!!");
     }
+    @samInMethod
     public String getName() {
         return name;
     }
-
     public String getId() {
         return id;
     }
