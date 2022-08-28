@@ -8,17 +8,25 @@ public class DriverMain {
             e1.getClass().getMethod("display").invoke(e1);
         }
 
-        Employee e2 = new Employee("saptarshi","12",31);
+        Employee e2 = new Employee("saptarshi","12",30);
 
         System.out.println(Arrays.stream(e1.getClass().getMethods()).filter(s->s.isAnnotationPresent(samInMethod.class))
                 .findAny().get().invoke(e2));
 
-        if(Arrays.stream(e1.getClass().getDeclaredFields()).filter(s->s.isAnnotationPresent(samInField.class))
+        /*if(Arrays.stream(e1.getClass().getDeclaredFields()).filter(s->s.isAnnotationPresent(samInField.class))
                 .findAny().get().getInt(e2) > 30){
             throw new RuntimeException();
         }else{
-            Arrays.stream(e1.getClass().getDeclaredFields()).filter(s->s.isAnnotationPresent(samInField.class))
+            int value = Arrays.stream(e1.getClass().getDeclaredFields()).filter(s->s.isAnnotationPresent(samInField.class))
                     .findAny().get().getInt(e2);
+            System.out.println(value);
+        }*/
+
+        int count = Arrays.stream(e1.getClass().getDeclaredFields()).filter(s->s.isAnnotationPresent(samInField.class))
+                .findAny().get().getAnnotation(samInField.class).value();
+        for(int i=0;i<count;i++){
+            System.out.println(Arrays.stream(e1.getClass().getDeclaredFields()).filter(s->s.isAnnotationPresent(samInField.class))
+                    .findAny().get().getInt(e2));
         }
     }
 }
