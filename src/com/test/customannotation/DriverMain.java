@@ -1,3 +1,5 @@
+package com.test.customannotation;
+
 import java.lang.reflect.InvocationTargetException;
 import java.util.Arrays;
 
@@ -13,11 +15,11 @@ public class DriverMain {
         System.out.println(Arrays.stream(e1.getClass().getMethods()).filter(s->s.isAnnotationPresent(samInMethod.class))
                 .findAny().get().invoke(e2));
 
-        /*if(Arrays.stream(e1.getClass().getDeclaredFields()).filter(s->s.isAnnotationPresent(samInField.class))
+        /*if(Arrays.stream(e1.getClass().getDeclaredFields()).filter(s->s.isAnnotationPresent(com.test.customannotation.samInField.class))
                 .findAny().get().getInt(e2) > 30){
             throw new RuntimeException();
         }else{
-            int value = Arrays.stream(e1.getClass().getDeclaredFields()).filter(s->s.isAnnotationPresent(samInField.class))
+            int value = Arrays.stream(e1.getClass().getDeclaredFields()).filter(s->s.isAnnotationPresent(com.test.customannotation.samInField.class))
                     .findAny().get().getInt(e2);
             System.out.println(value);
         }*/

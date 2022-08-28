@@ -1,3 +1,5 @@
+package com.test.customannotation;
+
 @sam
 public class Employee {
     private String name;
@@ -43,7 +45,7 @@ public class Employee {
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "com.test.customannotation.Employee{" +
                 "name='" + name + '\'' +
                 ", id='" + id + '\'' +
                 ", age=" + age +
