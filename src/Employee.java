@@ -2,7 +2,8 @@
 public class Employee {
     private String name;
     private String id;
-    private int age;
+    @samInField
+    public int age;
 
     public Employee() {
     }

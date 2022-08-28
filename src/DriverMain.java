@@ -8,9 +8,17 @@ public class DriverMain {
             e1.getClass().getMethod("display").invoke(e1);
         }
 
-        Employee e2 = new Employee("saptarshi","12",29);
+        Employee e2 = new Employee("saptarshi","12",31);
 
         System.out.println(Arrays.stream(e1.getClass().getMethods()).filter(s->s.isAnnotationPresent(samInMethod.class))
                 .findAny().get().invoke(e2));
+
+        if(Arrays.stream(e1.getClass().getDeclaredFields()).filter(s->s.isAnnotationPresent(samInField.class))
+                .findAny().get().getInt(e2) > 30){
+            throw new RuntimeException();
+        }else{
+            Arrays.stream(e1.getClass().getDeclaredFields()).filter(s->s.isAnnotationPresent(samInField.class))
+                    .findAny().get().getInt(e2);
+        }
     }
 }
