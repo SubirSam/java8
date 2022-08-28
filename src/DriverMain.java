@@ -23,7 +23,7 @@ public class DriverMain {
         }*/
 
         int count = Arrays.stream(e1.getClass().getDeclaredFields()).filter(s->s.isAnnotationPresent(samInField.class))
-                .findAny().get().getAnnotation(samInField.class).value();
+                .findAny().get().getAnnotation(samInField.class).valueTest();
         for(int i=0;i<count;i++){
             System.out.println(Arrays.stream(e1.getClass().getDeclaredFields()).filter(s->s.isAnnotationPresent(samInField.class))
                     .findAny().get().getInt(e2));

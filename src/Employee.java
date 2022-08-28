@@ -2,7 +2,7 @@
 public class Employee {
     private String name;
     private String id;
-    @samInField
+    @samInField(valueTest = 7)
     public int age;
 
     public Employee() {
